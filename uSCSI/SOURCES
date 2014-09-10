@@ -1,0 +1,13 @@
+TARGETNAME=uSCSI
+TARGETTYPE=DRIVER
+TARGETPATH=..\obj
+TARGETLIBS=..\obj\i386\uSCSIPort.lib	\
+			$(DDK_LIB_PATH)\scsiport.lib
+INCLUDES=..\uSCSIPort
+SOURCES= uSCSI.c \
+		IoCtl.c \
+		Pnp.c \
+		Utils.c \
+		ReadWrite.c	\
+		srb.c
+		

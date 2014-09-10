@@ -1,0 +1,23 @@
+TARGETNAME=uSCSIPort
+TARGETTYPE=EXPORT_DRIVER
+TARGETPATH=..\obj
+TARGETLIBS=$(SDK_LIB_PATH)\tdi.lib
+INCLUDES=.
+SOURCES=uSCSI.c	\
+		Transport.c \
+		TransUtils.c \
+		Protocol.c \
+		ProtUtils.c \
+		Key.c	\
+		Login.c	\
+		Discover.c	\
+		Text.c	\
+		Handler.c	\
+		Nop.c	\
+		Cmd.c	\
+		Data.c	\
+		R2T.c	\
+		Reject.c	\
+		Response.c	\
+		Task.c
+		

@@ -1,0 +1,8 @@
+LIBRARY uSCSIPort.sys
+EXPORTS
+	uSCSIInitialize @1
+	uSCSICreateSession @2
+	uSCSIProcessSCSICmd @3
+	uSCSIAddTarget @4
+	uSCSIGetTargetsSize	@5
+	uSCSIPopTargets	@6

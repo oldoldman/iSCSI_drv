@@ -1,0 +1,74 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=SCSIAdapter
+ClassGuid={4d36e97b-e325-11ce-bfc1-08002be10318}
+Provider=%PROD%
+DriverVer=08/21/2009,1.0.0.2
+
+[ClassInstall32]
+Addreg=ClassInstall32.AddReg
+
+[ClassInstall32.AddReg]
+HKR,,Class,0,%uSCSI_Class%
+HKR,,Icon,,"-11"
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[Manufacturer]
+%StdMfg%=STDANDARD
+
+[STDANDARD]
+%uSCSI_Device%=uSCSI_Device, uSCSI\uSCSI
+
+[uSCSI_Device.NT]
+DriverVer = 08/21/2009,1.0.0.2
+CopyFiles = uSCSI_Device.NT.Copy
+AddReg = uSCSI_Device.NT.AddReg
+
+[uSCSI_Device.NT.Copy]
+uSCSI.sys
+
+[uSCSI_Device.NT.AddReg]
+HKR,Any\Path\You\Can\Add,"Test",0x00010003,7
+
+[uSCSI_Device.NT.HW]
+AddReg=uSCSI_Device.NT.HW.AddReg
+
+[uSCSI_Device.NT.HW.AddReg]
+HKR,Any\Path\You\Can\Add,"Test",0x00010003,7
+
+;-------------- Service installation
+
+[uSCSI_Device.NT.Services]
+AddService = uSCSI, %SPSVCINST_ASSOCSERVICE%, uSCSI_Device_Inst
+
+[uSCSI_Device_Inst]
+DisplayName    = %uSCSI_Device_DisplayName%
+Description    = %uSCSI_Device_Description%
+AddReg         = uSCSI_Device_Inst.AddReg
+
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\uscsi.sys
+LoadOrderGroup = Extended Base
+
+[uSCSI_Device_Inst.AddReg]
+HKR,,ObjectName,0x00000000,"\Driver\uSCSISvc"
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+
+[Strings]
+uSCSI_Device_DisplayName = "uSCSI"
+uSCSI_Device_Description = "uSCSI"
+uSCSI_Device = "uSCSI"
+uSCSI_Class = "uSCSI Class"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+PROD = "余上"
+StdMfg = "系统标准设备供应商"
+DiskId1 = "安装盘"
