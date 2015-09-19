@@ -14,7 +14,7 @@ uscsictl            command tools , use to add target ,
 2.1 copy uSCSIPort.sys to system32/drivers
 2.2 install disk driver
 devcon install uscsi.inf uSCSI\uSCSI
-2.3 setup StarWind
+2.3 setup StarWind target name iqn.com.yushang:vdisk.01
 2.4 add target
 uscsictl -t iqn.com.yushang:vdisk.01 192.168.1.123
 2.5 connect to target 
