@@ -1,5 +1,5 @@
 # iSCSI_drv
-an iSCSI demo driver for Windows
+an iSCSI demo driver for Windows XP
 
 1. components
 -------------
