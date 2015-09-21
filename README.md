@@ -26,7 +26,7 @@ an iSCSI demo driver for Windows
 
 1. connect to target 
 
- **scsictl -c iqn.com.yushang:vdisk.01**
+ **uscsictl -c iqn.com.yushang:vdisk.01**
 
 1. initialize disk use Windows disk management MMC
 
